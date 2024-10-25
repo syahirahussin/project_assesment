@@ -36,9 +36,9 @@ if page == "Home":
     st.write("This app helps you explore Covid-19 status in 2020.")
     from PIL import Image
     flag = Image.open('Flag_of_Mexico.svg.png')
-    shrdc = Image.open('shrdc_logo.png')
+    #shrdc = Image.open('shrdc_logo.png')
     st.image(flag)
-    st.image(shrdc, use_column_width=True)
+    #st.image(shrdc, use_column_width=True)
 
 # Health Charts page
 elif page == "Health Charts":
