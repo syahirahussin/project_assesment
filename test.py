@@ -33,7 +33,7 @@ if page == "Home":
     st.title("Covid-19 in Mexico")
     st.write("This app helps you explore Covid-19 status in 2020.")
     from PIL import Image
-    shrdc = Image.open('shrdc_logo (2).png')
+    shrdc = Image.open('shrdc_logo.png')
     #st.image(shrdc)
     st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
     st.image(shrdc, use_column_width=True)
