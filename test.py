@@ -62,8 +62,8 @@ elif page == "Health Charts":
         line_chart.update_traces(mode="lines+markers", hovertemplate="Date: %{x}<br>Admissions: %{y}")
         st.plotly_chart(line_chart, use_container_width=True)
 
-    # Interactive bar chart for Cases by Age
-    with tabs[1]:
+        # Interactive bar chart for Cases by Age
+        with tabs[1]:
         st.subheader("Cases by Age")
         selected_age_groups = st.multiselect("Select Age Groups to display", age_labels)
 
@@ -81,25 +81,25 @@ elif page == "Health Charts":
         st.plotly_chart(bar_chart, use_container_width=True)
 
 
-# Semi-circle donut chart using Plotly
-with tabs[2]:
-    st.subheader("Cases by Sex")
+    # Semi-circle donut chart using Plotly
+    with tabs[2]:
+        st.subheader("Cases by Sex")
+        
+        # Plotly Pie chart for gender distribution
+        fig = px.pie(
+            df, 
+            names=labels, 
+            values=sex_counts.values,
+            hole=0.4,  # Creates a donut effect
+        )
+        
+        # Rotate to show as a half circle and hide upper half
+        fig.update_traces(textinfo='percent+label', rotation=180, pull=[0.1, 0], 
+                          marker=dict(colors=['#636EFA', '#EF553B']))
+        fig.update_layout(
+            title_text="Gender Distribution (Semi-circle Donut Chart)",
+            showlegend=True,
+        )
     
-    # Plotly Pie chart for gender distribution
-    fig = px.pie(
-        df, 
-        names=labels, 
-        values=sex_counts.values,
-        hole=0.4,  # Creates a donut effect
-    )
-    
-    # Rotate to show as a half circle and hide upper half
-    fig.update_traces(textinfo='percent+label', rotation=180, pull=[0.1, 0], 
-                      marker=dict(colors=['#636EFA', '#EF553B']))
-    fig.update_layout(
-        title_text="Gender Distribution (Semi-circle Donut Chart)",
-        showlegend=True,
-    )
-
-    # Display the Plotly figure
-    st.plotly_chart(fig)
+        # Display the Plotly figure
+        st.plotly_chart(fig)
