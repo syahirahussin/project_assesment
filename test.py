@@ -63,7 +63,7 @@ elif page == "Health Charts":
         st.plotly_chart(line_chart, use_container_width=True)
 
         # Interactive bar chart for Cases by Age
-        with tabs[1]:
+    with tabs[1]:
         st.subheader("Cases by Age")
         selected_age_groups = st.multiselect("Select Age Groups to display", age_labels)
 
